@@ -1,6 +1,6 @@
 # App to grid
 
-Simple command line tool to add applications to the app grid or list of your desktop environment.
+Simple linux command line tool to add applications to the app grid or list of your desktop environment.
 
 ![Appgrid](./Appgrid.png)
 
@@ -12,6 +12,8 @@ Optionally it copies your binary to `/usr/bin`. That is useful for binaries like
 
 ## Getting started
 
-Enter `sudo ./AppToGrid.sh` into the terminal and follow the prompts.
+1. Make AppToGrid executable `chmod +x ./AppToGrid.sh`.
 
-> Always enter the full application name and extension when the source application path is prompted, e.g. `/path/to/myApp.AppImage`
+2. Start AppToGrid `sudo ./AppToGrid.sh` and follow the prompts.
+
+> Always enter the full path, application name and extension when the source application path is prompted, e.g. `/path/to/myApp.AppImage`
