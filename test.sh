@@ -51,7 +51,7 @@ if [ ! $(ls -l /usr/bin/TestApp.sh | cut -c 10-10) == "x" ]
 then
     echo "Assert 4" >> test.log
     echo "Executable has no execution permissions" >> test.log
-    ls -l /usr/bin/TestApp.sh
+    ls -l /usr/bin/TestApp.sh >> test.log
     echo
 fi
 
