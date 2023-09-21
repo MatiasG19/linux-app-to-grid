@@ -37,12 +37,12 @@ Exec='/usr/bin/TestApp.sh'
 Name=TestApp
 Comment=TestApp
 Keywords=TestApp;"
-diff <(echo $DESKTOP) <(cat /usr/share/applications/TestApp.sh)
+diff <(echo $DESKTOP) <(cat /usr/share/applications/TestApp.desktop)
 if [ $(echo $?) == 1 ] 
 then
     echo "Assert 3" >> test.log
     echo ".desktop file content is different" >> test.log
-    echo diff <(echo textio) <(echo text) >> test.log
+    echo diff <(echo $DESKTOP) <(cat /usr/share/applications/TestApp.desktop) >> test.log
     echo
 fi
 
@@ -59,10 +59,4 @@ fi
 if [ -f test.log ]; then
     cat test.log
     exit 1
-fi
-
-
-if [ ! $(ls -l ./test/text.txt | cut -c 10-10) == "x" ]
-then
-echo hello
 fi
