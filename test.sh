@@ -37,7 +37,7 @@ Exec='/usr/bin/TestApp.sh'
 Name=TestApp
 Comment=TestApp
 Keywords=TestApp;"
-diff <(echo $DESKTOP) <(echo /usr/share/applications/TestApp.sh)
+diff <(echo $DESKTOP) <(cat /usr/share/applications/TestApp.sh)
 if [ $(echo $?) == 1 ] 
 then
     echo "Assert 3" >> test.log
