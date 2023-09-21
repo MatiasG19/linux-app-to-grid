@@ -1,3 +1,5 @@
+[![CI](https://github.com/MatiasG19/linux-app-to-grid/actions/workflows/ci.yml/badge.svg)](https://github.com/MatiasG19/linux-app-to-grid/actions/workflows/ci.yml)
+
 # App to grid
 
 Simple linux command line tool to add applications to the app grid or list of your desktop environment.
