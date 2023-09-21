@@ -30,19 +30,19 @@ if [ ! -f /usr/share/applications/TestApp.desktop ]; then
 fi
 
 ## .desktop file content
-DESKTOP="[Desktop Entry]
+echo "[Desktop Entry]
 Type=Application
 Terminal=false
 Exec='/usr/bin/TestApp.sh'
 Name=TestApp
 Comment=TestApp
-Keywords=TestApp;"
-diff <(echo $DESKTOP) <(cat /usr/share/applications/TestApp.desktop)
+Keywords=TestApp;" > test.desktop
+diff <(cat test.desktop) <(cat /usr/share/applications/TestApp.desktop)
 if [ $(echo $?) == 1 ] 
 then
     echo "Assert 3" >> test.log
     echo ".desktop file content is different" >> test.log
-    echo diff <(echo $DESKTOP) <(cat /usr/share/applications/TestApp.desktop) >> test.log
+    echo diff <(cat test.desktop) <(cat /usr/share/applications/TestApp.desktop) >> test.log
     echo
 fi
 
