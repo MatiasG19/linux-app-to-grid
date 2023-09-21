@@ -33,10 +33,10 @@ fi
 DESKTOP="[Desktop Entry]
 Type=Application
 Terminal=false
-Exec='$pathToExe'
-Name=$appName
-Comment=$appName
-Keywords=$appName;"
+Exec='/usr/bin/TestApp.sh'
+Name=TestApp
+Comment=TestApp
+Keywords=TestApp;"
 diff <(echo $DESKTOP) <(echo /usr/share/applications/TestApp.sh)
 if echo $? == 1 
 then
@@ -51,6 +51,7 @@ if [ ! $(ls -l /usr/bin/TestApp.sh | cut -c 10-10) == "x" ]
 then
     echo "Assert 4" >> test.log
     echo "Executable has no execution permissions" >> test.log
+    ls -l /usr/bin/TestApp.sh
     echo
 fi
 
