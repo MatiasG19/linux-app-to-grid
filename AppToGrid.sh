@@ -10,6 +10,16 @@ do
     fi
 done
 
+while read -rp "Is it a terminal application (will open app in terminal) [y/n]? " terminalApp
+do
+    if [ "$terminalApp" == "y" || "$terminalApp" == "n" ] 
+    then
+        break
+    else 
+        echo "Invalid answer."
+    fi
+done
+
 while read -rp "Enter path to executable (full path with extension): " pathToExe
 do
     if [ ! -f "$pathToExe" ] 
@@ -43,7 +53,7 @@ chmod +x "$pathToExe"
 echo "Adding application entry $appName.desktop to grid at /usr/share/applications/..."
 echo "[Desktop Entry]
 Type=Application
-Terminal=false
+Terminal=$terminalApp
 Exec='$pathToExe'
 Name=$appName
 Comment=$appName
