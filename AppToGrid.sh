@@ -14,6 +14,9 @@ then
     pathToExe="/usr/bin/$fileNameWithExtension"
 fi
 
+echo "Adding permissions..."
+chmod +x "$pathToExe"
+
 echo "Adding application entry $appName.desktop to grid at /usr/share/applications/..."
 echo "[Desktop Entry]
 Type=Application
@@ -23,6 +26,4 @@ Name=$appName
 Comment=$appName
 Keywords=$appName;" > "/usr/share/applications/$appName.desktop"
 
-echo "Adding permissions..."
-chmod +x "$pathToExe"
 echo "Done."
