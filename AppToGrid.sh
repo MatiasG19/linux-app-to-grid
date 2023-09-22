@@ -14,7 +14,7 @@ then
     pathToExe="/usr/bin/$fileNameWithExtension"
 fi
 
-echo "Adding application to grid at /usr/share/applications/$appName.desktop..."
+echo "Adding application entry $appName.desktop to grid at /usr/share/applications/..."
 echo "[Desktop Entry]
 Type=Application
 Terminal=false
