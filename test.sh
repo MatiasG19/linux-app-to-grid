@@ -59,6 +59,18 @@ then
     echo
 fi
 
+## Run test app
+TestApp.sh | grep -q "Hello world!"
+if [ "$?" -eq 1 ]
+then
+    {
+        echo "Assert 5" 
+        echo "Output of TestApp does not match expected output"
+        diff <(bash TestApp.sh) <(echo "Hello world!")
+    } >> test.log
+    echo
+fi
+
 ## Fail test when logfile exists
 if [ -f test.log ]; then
     cat test.log
