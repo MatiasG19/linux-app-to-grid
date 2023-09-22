@@ -50,6 +50,7 @@ done
 echo "Adding permissions..."
 chmod +x "$pathToExe"
 
+# sh -c 'echo hello; $SHELL'
 echo "Adding application entry $appName.desktop to grid at /usr/share/applications/..."
 echo "[Desktop Entry]
 Type=Application
