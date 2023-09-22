@@ -3,9 +3,10 @@
 ##################################
 # arrange
 ##################################
+mkdir temp
 echo "#!/bin/bash
 echo Hello world!
-" > TestApp.sh
+" > ./temp/TestApp.sh
 
 ##################################
 # act
