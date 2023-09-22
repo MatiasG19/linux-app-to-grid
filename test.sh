@@ -38,20 +38,24 @@ Name=TestApp
 Comment=TestApp
 Keywords=TestApp;" > test.desktop
 diff <(cat test.desktop) <(cat /usr/share/applications/TestApp.desktop)
-if [ $(echo $?) == 1 ] 
+if [ "$?" -eq 1 ] 
 then
-    echo "Assert 3" >> test.log
-    echo ".desktop file content is different" >> test.log
-    echo diff <(cat test.desktop) <(cat /usr/share/applications/TestApp.desktop) >> test.log
+    {
+        echo "Assert 3" 
+        ".desktop file content is different"
+        diff <(cat test.desktop) <(cat /usr/share/applications/TestApp.desktop)
+    } >> test.log
     echo
 fi
 
 ## Check executable permissions
-if [ ! $(ls -l /usr/bin/TestApp.sh | cut -c 10-10) == "x" ]
+if [ ! "$(ls -l /usr/bin/TestApp.sh | cut -c 10-10)" == "x" ]
 then
-    echo "Assert 4" >> test.log
-    echo "Executable has no execution permissions" >> test.log
-    ls -l /usr/bin/TestApp.sh >> test.log
+    {
+        echo "Assert 4" 
+        echo "Executable has no execution permissions"
+        ls -l /usr/bin/TestApp.sh
+    } >> test.log
     echo
 fi
 
