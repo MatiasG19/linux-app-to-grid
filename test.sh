@@ -3,14 +3,15 @@
 ##################################
 # arrange
 ##################################
+mkdir temp
 echo "#!/bin/bash
 echo Hello world!
-" > TestApp.sh
+" > ./temp/TestApp.sh
 
 ##################################
 # act
 ##################################
-printf '%s\n' TestApp ./TestApp.sh y | sudo ./AppToGrid.sh
+printf '%s\n' TestApp ./temp/TestApp.sh y | sudo ./AppToGrid.sh
 
 ##################################
 # assert
