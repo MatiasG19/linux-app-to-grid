@@ -11,7 +11,6 @@ if [ "$res" == "y" ]
 then
     echo "Copying executable $fileNameWithExtension to /usr/bin/..."
     cp "$pathToExe" "/usr/bin/"
-    echo "Copied executable."
     pathToExe="/usr/bin/$fileNameWithExtension"
 fi
 
@@ -24,8 +23,7 @@ Name=$appName
 Comment=$appName
 Keywords=$appName;" > "/usr/share/applications/$appName.desktop"
 
-echo "Application added to grid."
 echo "/usr/share/applications/$appName.desktop"
 echo "Adding permissions..."
 chmod +x "$pathToExe"
-echo "Permissions added."
+echo "Done."
