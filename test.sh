@@ -17,19 +17,23 @@ printf '%s\n' TestApp ./TestApp.sh y | sudo ./AppToGrid.sh
 ##################################
 ## Check if executable exists
 if [ ! -f /usr/bin/TestApp.sh ]; then
-    echo "Assert 1" >> test.log
-    echo "Executable does not exist in /usr/bin/" >> test.log
-    echo
+    {  
+        echo "Assert 1" 
+        echo "Executable does not exist in /usr/bin/"
+        echo
+    } >> test.log
 fi
 
 ## Check if desktop file exists
 if [ ! -f /usr/share/applications/TestApp.desktop ]; then
-    echo "Assert 2" >> test.log
-    echo ".desktop file does not exist in /usr/share/applications/" >> test.log
-    echo
+    {
+        echo "Assert 2"
+        echo ".desktop file does not exist in /usr/share/applications/" 
+        echo
+    } >> test.log
 fi
 
-## .desktop file content
+## Check .desktop file content
 echo "[Desktop Entry]
 Type=Application
 Terminal=false
@@ -42,10 +46,10 @@ if [ "$?" -eq 1 ]
 then
     {
         echo "Assert 3" 
-        ".desktop file content is different"
+        ".desktop file content does not match test data"
         diff <(cat test.desktop) <(cat /usr/share/applications/TestApp.desktop)
+        echo
     } >> test.log
-    echo
 fi
 
 ## Check executable permissions
@@ -55,8 +59,8 @@ then
         echo "Assert 4" 
         echo "Executable has no execution permissions"
         ls -l /usr/bin/TestApp.sh
+        echo
     } >> test.log
-    echo
 fi
 
 ## Run test app
@@ -67,8 +71,8 @@ then
         echo "Assert 5" 
         echo "Output of TestApp does not match expected output"
         diff <(bash TestApp.sh) <(echo "Hello world!")
+        echo
     } >> test.log
-    echo
 fi
 
 ## Fail test when logfile exists

@@ -11,9 +11,11 @@ if [ "$res" == "y" ]
 then
     echo "Copying executable $fileNameWithExtension to /usr/bin/..."
     cp "$pathToExe" "/usr/bin/"
+    echo "Copied executable."
     pathToExe="/usr/bin/$fileNameWithExtension"
 fi
 
+echo "Adding application to grid..."
 echo "[Desktop Entry]
 Type=Application
 Terminal=false
