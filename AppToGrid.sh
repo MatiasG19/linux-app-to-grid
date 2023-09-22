@@ -10,7 +10,7 @@ read -rp "Copy executable $fileNameWithExtension to /usr/bin/ [y/n]?  " res
 if [ "$res" == "y" ]
 then
     echo "Copying executable $fileNameWithExtension to /usr/bin/..."
-    cp "$pathToExe" "/usr/bin/"
+    cp -i "$pathToExe" "/usr/bin/"
     pathToExe="/usr/bin/$fileNameWithExtension"
 fi
 
@@ -24,6 +24,8 @@ Terminal=false
 Exec='$pathToExe'
 Name=$appName
 Comment=$appName
-Keywords=$appName;" > "/usr/share/applications/$appName.desktop"
+Keywords=$appName;" > "$appName.desktop"
+
+mv -i "$appName.desktop" "/usr/share/applications/$appName.desktop"
 
 echo "Done."
