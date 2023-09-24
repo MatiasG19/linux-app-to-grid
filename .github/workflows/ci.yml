@@ -19,7 +19,6 @@ jobs:
         run: chmod +x tests/add.sh && chmod +x AppToGrid.sh
 
       - name: Test Add
-        working-directory: tests
         run: bash add.sh
 
   test-remove:
@@ -33,7 +32,6 @@ jobs:
         run: chmod +x tests/remove.sh && chmod +x AppToGrid.sh
 
       - name: Test Remove
-        working-directory: tests
         run: bash remove.sh
 
   lint:
