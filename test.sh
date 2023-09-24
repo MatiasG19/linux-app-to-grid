@@ -6,18 +6,18 @@
 mkdir temp
 echo "#!/bin/bash
 echo Hello world!
-" > ./temp/TestApp.sh
+" > ./temp/testApp.sh
 
 ##################################
 # act
 ##################################
-printf '%s\n' TestApp ./temp/TestApp.sh y | sudo ./AppToGrid.sh
+printf '%s\n' TestApp ./temp/testApp.sh y | sudo ./AppToGrid.sh
 
 ##################################
 # assert
 ##################################
 ## Check if executable exists
-if [ ! -f /usr/bin/TestApp.sh ]; then
+if [ ! -f /usr/bin/testApp.sh ]; then
     {  
         echo "Assert 1" 
         echo "Executable does not exist in /usr/bin/"
@@ -38,11 +38,11 @@ fi
 echo "[Desktop Entry]
 Type=Application
 Terminal=false
-Exec='/usr/bin/TestApp.sh'
+Exec='/usr/bin/testApp.sh'
 Name=TestApp
 Comment=TestApp
 Keywords=TestApp;" > test.desktop
-diff <(cat test.desktop) <(cat /usr/share/applications/TestApp.desktop)
+diff <(cat test.desktop) <(cat /usr/share/applications/testApp.desktop)
 if [ "$?" -eq 1 ] 
 then
     {
@@ -54,12 +54,12 @@ then
 fi
 
 ## Check executable permissions
-if [ ! "$(ls -l /usr/bin/TestApp.sh | cut -c 10-10)" == "x" ]
+if [ ! "$(ls -l /usr/bin/testApp.sh | cut -c 10-10)" == "x" ]
 then
     {
         echo "Assert 4" 
         echo "Executable has no execution permissions"
-        ls -l /usr/bin/TestApp.sh
+        ls -l /usr/bin/testApp.sh
         echo
     } >> test.log
 fi
@@ -71,7 +71,7 @@ then
     {
         echo "Assert 5" 
         echo "Output of TestApp does not match expected output"
-        diff <(bash TestApp.sh) <(echo "Hello world!")
+        diff <(bash testApp.sh) <(echo "Hello world!")
         echo
     } >> test.log
 fi
