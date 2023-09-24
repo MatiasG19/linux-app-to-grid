@@ -46,10 +46,10 @@ fi
 echo "[Desktop Entry]
 Type=Application
 Terminal=false
-Exec='/usr/bin/$exeNameWithExtension'
-Name=$appName
-Comment=$appName
-Keywords=$appName;" > test.desktop
+Exec='/usr/bin/testApp.sh'
+Name=TestApp
+Comment=TestApp
+Keywords=TestApp;" > test.desktop
 diff "test.desktop" "/usr/share/applications/$exeName.desktop"
 if [ "$?" -eq 1 ]
 then
