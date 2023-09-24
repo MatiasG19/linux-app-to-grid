@@ -22,7 +22,7 @@ printf '%s\n' $appName ./temp/$exeNameWithExtension y | sudo ./AppToGrid.sh
 ##################################
 # assert
 ##################################
-echo Act
+echo Assert
 
 ## Check if executable exists
 if [ ! -f "/usr/bin/$exeNameWithExtension" ]; then
