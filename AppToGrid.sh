@@ -39,14 +39,15 @@ then
         fi
     done
 
-    fileNameWithExtension=$(basename "$pathToExe")
-    while read -rp "Copy executable $fileNameWithExtension to $BIN_DIR [y/n]?  " res
+    exeNameWithExtension=$(basename "$pathToExe")
+    exeName="${exeNameWithExtension%.*}"
+    while read -rp "Copy executable $exeNameWithExtension to $BIN_DIR [y/n]?  " res
     do
         if [ "$res" == "y" ]
         then
-            echo "Copying executable $fileNameWithExtension to $BIN_DIR..."
+            echo "Copying executable $exeNameWithExtension to $BIN_DIR..."
             cp -i "$pathToExe" "$BIN_DIR"
-            pathToExe="$BIN_DIR$fileNameWithExtension"
+            pathToExe="$BIN_DIR$exeNameWithExtension"
             break
         elif [ "$res" == "n"  ] 
         then
@@ -59,16 +60,16 @@ then
     echo "Adding permissions..."
     chmod +x "$pathToExe"
 
-    echo "Adding desktop entry $appName.desktop to grid at $DESKTOP_DIR..."
+    echo "Adding desktop entry $exeName.desktop to grid at $DESKTOP_DIR..."
     echo "[Desktop Entry]
     Type=Application
     Terminal=false
     Exec='$pathToExe'
     Name=$appName
     Comment=$appName
-    Keywords=$appName;" > "$appName.desktop"
+    Keywords=$appName;" > "$exeName.desktop"
 
-    mv -i "$appName.desktop" "$DESKTOP_DIR$appName.desktop"
+    mv -i "$exeName.desktop" "$DESKTOP_DIR$exeName.desktop"
 
 elif [ "$action" == "Remove" ]
 then
