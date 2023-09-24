@@ -47,13 +47,12 @@ Exec='/usr/bin/$exeNameWithExtension'
 Name=$appName
 Comment=$appName
 Keywords=$appName;" > test.desktop
-diff <(cat test.desktop) <(cat /usr/share/applications/$exeName.desktop)
-if [ "$?" -eq 1 ] 
+if cmp -s "test.desktop" "/usr/share/applications/$exeName.desktop"
 then
     {
         echo "Assert 3" 
         echo ".desktop file content does not match test data"
-        diff <(cat test.desktop) <(cat /usr/share/applications/$exeName.desktop)
+        cmp "test.desktop" "/usr/share/applications/$exeName.desktop"
         echo
     } >> test.log
 fi
