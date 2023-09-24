@@ -4,7 +4,7 @@
 # arrange
 ##################################
 echo Arrage
-appName=TestApp
+appName="Test App"
 exeNameWithExtension=myApp.sh
 exeName=myApp
 
@@ -17,7 +17,7 @@ echo Hello world!
 # act
 ##################################
 echo Act
-printf '%s\n' 1 $appName ./temp/$exeNameWithExtension y | sudo ./AppToGrid.sh
+printf '%s\n' 1 "$appName" ./temp/$exeNameWithExtension y | sudo ./AppToGrid.sh
 
 ##################################
 # assert
@@ -34,7 +34,7 @@ if [ ! -f "/usr/bin/$exeNameWithExtension" ]; then
 fi
 
 ## Check if desktop file exists
-if [ ! -f /usr/share/applications/$exeName.desktop ]; then
+if [ ! -f "/usr/share/applications/$exeName.desktop" ]; then
     {
         echo "Assert 2"
         echo ".desktop file does not exist in /usr/share/applications/" 
@@ -46,10 +46,10 @@ fi
 echo "[Desktop Entry]
 Type=Application
 Terminal=false
-Exec='/usr/bin/myApp.sh'
-Name=TestApp
-Comment=TestApp
-Keywords=TestApp;" > test.desktop
+Exec='/usr/bin/$exeNameWithExtension'
+Name=$appName
+Comment=$appName
+Keywords=$appName;" > test.desktop
 diff "test.desktop" "/usr/share/applications/$exeName.desktop"
 if [ "$?" -eq 1 ]
 then

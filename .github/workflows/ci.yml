@@ -8,7 +8,7 @@ on:
     types: [released, prereleased]
 
 jobs:
-  test:
+  test-add:
     runs-on: ubuntu-22.04
 
     steps:
@@ -18,8 +18,23 @@ jobs:
       - name: Add permissions
         run: chmod +x test.sh && chmod +x AppToGrid.sh
 
-      - name: Test
-        run: bash test.sh
+      - name: Test Add
+        working-directory: tests
+        run: bash add.sh
+
+  test-remove:
+    runs-on: ubuntu-22.04
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Add permissions
+        run: chmod +x test.sh && chmod +x AppToGrid.sh
+
+      - name: Test Remove
+        working-directory: tests
+        run: bash remove.sh
 
   lint:
     runs-on: ubuntu-22.04
