@@ -1,9 +1,8 @@
 #!/bin/bash
 
-##################################
-# arrange
-##################################
-echo Arrage
+echo "##################################"
+echo "# Arrage"
+echo "##################################"
 appName="Test App"
 exeNameWithExtension=myApp.sh
 exeName=myApp
@@ -15,6 +14,7 @@ echo Hello world!
 
 # Create files
 printf '%s\n' 1 "$appName" ./temp/$exeNameWithExtension y | sudo ../AppToGrid.sh
+echo
 
 ## Check if executable exists
 if [ ! -f "/usr/bin/$exeNameWithExtension" ]; then
@@ -27,17 +27,17 @@ if [ ! -f "/usr/share/applications/$exeName.desktop" ]; then
     echo "Failed to create desktop entry."
     exit 1
 fi
+echo
 
-##################################
-# act
-##################################
-echo Act
+echo "##################################"
+echo "# Act"
+echo "##################################"
 printf '%s\n' 2 "$appName" y | sudo ../AppToGrid.sh
+echo
 
-##################################
-# assert
-##################################
-echo Assert
+echo "##################################"
+echo "# Assert"
+echo "##################################"
 
 ## Check if executable was removed
 if [ -f "/usr/bin/$exeNameWithExtension" ]; then
@@ -59,6 +59,7 @@ fi
 
 ## Fail test when logfile exists
 if [ -f test.log ]; then
+    echo "Show test log:"
     cat test.log
     exit 1
 fi
