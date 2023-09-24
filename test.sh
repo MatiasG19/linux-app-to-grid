@@ -48,7 +48,7 @@ then
     {
         echo "Assert 3" 
         ".desktop file content does not match test data"
-        diff <(cat test.desktop) <(cat /usr/share/applications/TestApp.desktop)
+        diff <(cat test.desktop) <(cat /usr/share/applications/testApp.desktop)
         echo
     } >> test.log
 fi
