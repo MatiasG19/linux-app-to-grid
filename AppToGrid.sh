@@ -87,7 +87,7 @@ then
     desktopEntries=("$DESKTOP_DIR"*)
     for desktopEntry in "${desktopEntries[@]}"
     do
-        if grep -q "Name=$appName" "desktopEntry"
+        if grep -q "Name=$appName" "$desktopEntry"
         then
             exeName="$(basename "$desktopEntry" ".desktop")"
             break
