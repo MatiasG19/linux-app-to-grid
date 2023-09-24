@@ -49,14 +49,13 @@ Terminal=false
 Exec='/usr/bin/$exeNameWithExtension'
 Name=$appName
 Comment=$appName
-Hallo
 Keywords=$appName;" > test.desktop
-if cmp -s "test.desktop" "/usr/share/applications/$exeName.desktop"
+if diff "test.desktop" "/usr/share/applications/$exeName.desktop"
 then
     {
         echo "Assert 3" 
         echo ".desktop file content does not match test data"
-        cmp "test.desktop" "/usr/share/applications/$exeName.desktop"
+        diff "test.desktop" "/usr/share/applications/$exeName.desktop"
         echo
     } >> test.log
 fi
