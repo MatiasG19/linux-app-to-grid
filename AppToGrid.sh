@@ -58,7 +58,7 @@ then
     echo "Adding permissions..."
     chmod +x "$pathToExe"
 
-    echo "Adding application entry $appName.desktop to grid at $DESKTOP_DIR..."
+    echo "Adding desktop entry $appName.desktop to grid at $DESKTOP_DIR..."
     echo "[Desktop Entry]
     Type=Application
     Terminal=false
