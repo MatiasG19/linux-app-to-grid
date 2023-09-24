@@ -56,7 +56,7 @@ then
     {
         echo "Assert 3" 
         echo ".desktop file content does not match test data"
-        diff "test.desktop" "/usr/share/applications/$exeName.desktop"
+        diff -w -y "test.desktop" "/usr/share/applications/$exeName.desktop"
         echo
     } >> test.log
 fi
