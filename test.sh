@@ -51,7 +51,6 @@ Name=TestApp
 Comment=TestApp
 Keywords=TestApp;" > test.desktop
 diff "test.desktop" "/usr/share/applications/$exeName.desktop"
-cat "test.desktop" "/usr/share/applications/$exeName.desktop"
 if [ "$?" -eq 1 ]
 then
     {
