@@ -14,7 +14,7 @@ echo Hello world!
 " > ./temp/$exeNameWithExtension
 
 # Create files
-printf '%s\n' 1 "$appName" ./temp/$exeNameWithExtension y | sudo ./AppToGrid.sh
+printf '%s\n' 1 "$appName" ./temp/$exeNameWithExtension y | sudo ../AppToGrid.sh
 
 ## Check if executable exists
 if [ ! -f "/usr/bin/$exeNameWithExtension" ]; then
@@ -32,7 +32,7 @@ fi
 # act
 ##################################
 echo Act
-printf '%s\n' 2 "$appName" ./temp/$exeNameWithExtension y | sudo ./AppToGrid.sh
+printf '%s\n' 2 "$appName" ./temp/$exeNameWithExtension y | sudo ../AppToGrid.sh
 
 ##################################
 # assert

@@ -19,7 +19,8 @@ jobs:
         run: chmod +x tests/add.sh && chmod +x AppToGrid.sh
 
       - name: Test Add
-        run: bash tests/add.sh
+        working-directory: tests
+        run: bash add.sh
 
   test-remove:
     runs-on: ubuntu-22.04
@@ -32,7 +33,8 @@ jobs:
         run: chmod +x tests/remove.sh && chmod +x AppToGrid.sh
 
       - name: Test Remove
-        run: bash tests/remove.sh
+        working-directory: tests
+        run: bash remove.sh
 
   lint:
     runs-on: ubuntu-22.04
