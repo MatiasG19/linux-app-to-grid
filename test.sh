@@ -43,7 +43,7 @@ fi
 echo "[Desktop Entry]
 Type=Application
 Terminal=false
-Exec=/usr/bin/$exeNameWithExtension
+Exec='/usr/bin/$exeNameWithExtension'
 Name=$appName
 Comment=$appName
 Keywords=$appName;" > test.desktop
