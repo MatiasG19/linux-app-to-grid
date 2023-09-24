@@ -43,7 +43,7 @@ if [ ! -f /usr/share/applications/$exeName.desktop ]; then
 fi
 
 ## Check .desktop file content
-printf "[Desktop Entry]\nType=Application\nTerminal=false\nExec='/usr/bin/$exeNameWithExtension'\nName=$appName\nComment=$appName\nKeywords=$appName;" > test.desktop
+printf '%s\n' "[Desktop Entry]" "Type=Application" "Terminal=false" "Exec='/usr/bin/$exeNameWithExtension'" "Name=$appName" "Comment=$appName" "Keywords=$appName;" > test.desktop
 diff "test.desktop" "/usr/share/applications/$exeName.desktop"
 if [ "$?" -eq 1 ]
 then
