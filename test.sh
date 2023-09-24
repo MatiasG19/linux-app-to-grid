@@ -46,6 +46,7 @@ Terminal=false
 Exec='/usr/bin/$exeNameWithExtension'
 Name=$appName
 Comment=$appName
+Hallo
 Keywords=$appName;" > test.desktop
 if cmp -s "test.desktop" "/usr/share/applications/$exeName.desktop"
 then
