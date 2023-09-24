@@ -90,15 +90,16 @@ then
         if grep -q "Name=$appName" "$desktopEntry"
         then
             exeName="$(basename "$desktopEntry" ".desktop")"
+            exeNameWithExtension="$(basename "$desktopEntry")"
             break
         fi
     done
 
     filesFound=()
-    if [ -f "$BIN_DIR$exeName" ] 
+    if [ -f "$BIN_DIR$exeNameWithExtension" ] 
     then
-        echo "Executable $exeName found in $BIN_DIR."
-        filesFound+=("$BIN_DIR$exeName")
+        echo "Executable $exeNameWithExtension found in $BIN_DIR."
+        filesFound+=("$BIN_DIR$exeNameWithExtension")
     fi
     if [ -f "$DESKTOP_DIR$exeName.desktop" ] 
     then
