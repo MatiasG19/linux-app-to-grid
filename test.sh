@@ -17,7 +17,7 @@ echo Hello world!
 # act
 ##################################
 echo Act
-printf '%s\n' $appName ./temp/$exeNameWithExtension y | sudo ./AppToGrid.sh
+printf '%s\n' 1 $appName ./temp/$exeNameWithExtension y | sudo ./AppToGrid.sh
 
 ##################################
 # assert
