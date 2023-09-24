@@ -65,7 +65,7 @@ then
 fi
 
 ## Run test app
-TestApp.sh | grep -q "Hello world!"
+testApp.sh | grep -q "Hello world!"
 if [ "$?" -eq 1 ]
 then
     {
