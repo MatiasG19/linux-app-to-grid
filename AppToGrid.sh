@@ -92,11 +92,9 @@ then
             exeName="$(basename "$desktopEntry" ".desktop")"
             # Get full name of executable
             execProp=$(grep 'Exec=' "$desktopEntry" | grep "$BIN_DIR" )
-            echo "execProp $execProp"
             if [ "$execProp" ]
             then
                 exeNameWithExtension=$(basename "$execProp" | sed "s/'//g" | sed 's/"//g')
-                echo "exeNameWithExtension $exeNameWithExtension"
             fi
             break
         fi
