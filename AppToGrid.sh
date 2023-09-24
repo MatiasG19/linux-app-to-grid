@@ -95,7 +95,7 @@ then
             echo "execProp $execProp"
             if [ "$execProp" ]
             then
-                exeNameWithExtension=$(basename "$execProp")
+                exeNameWithExtension=$(basename "$execProp" | sed "s/'//g" | sed 's/"//g')
                 echo "exeNameWithExtension $exeNameWithExtension"
             fi
             break
