@@ -112,7 +112,7 @@ then
         do
             if [ "$res" == "y" ]
             then
-                for file in "${!filesFound[@]}"
+                for file in "${filesFound[@]}"
                 do
                     echo "Removing $file..."
                     rm "$file"
