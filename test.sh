@@ -43,20 +43,14 @@ if [ ! -f /usr/share/applications/$exeName.desktop ]; then
 fi
 
 ## Check .desktop file content
-echo "[Desktop Entry]
-Type=Application
-Terminal=false
-Exec='/usr/bin/$exeNameWithExtension'
-Name=$appName
-Comment=$appName
-Keywords=$appName;" > test.desktop
+printf "[Desktop Entry]\nType=Application\nTerminal=false\nExec='/usr/bin/$exeNameWithExtension'\nName=$appName\nComment=$appName\nKeywords=$appName;" > test.desktop
 diff "test.desktop" "/usr/share/applications/$exeName.desktop"
 if [ "$?" -eq 1 ]
 then
     {
         echo "Assert 3" 
         echo ".desktop file content does not match test data"
-        diff -w -y "test.desktop" "/usr/share/applications/$exeName.desktop"
+        diff -y "test.desktop" "/usr/share/applications/$exeName.desktop"
         echo
     } >> test.log
 fi
