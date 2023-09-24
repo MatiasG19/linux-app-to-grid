@@ -11,7 +11,7 @@ exeName=myApp
 mkdir temp
 echo "#!/bin/bash
 echo Hello world!
-" > ./temp/$exeName
+" > ./temp/$exeNameWithExtension
 
 ##################################
 # act
