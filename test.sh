@@ -46,7 +46,7 @@ fi
 echo "[Desktop Entry]
 Type=Application
 Terminal=false
-Exec='/usr/bin/testApp.sh'
+Exec='/usr/bin/myApp.sh'
 Name=TestApp
 Comment=TestApp
 Keywords=TestApp;" > test.desktop
