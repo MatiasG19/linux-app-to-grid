@@ -52,7 +52,7 @@ if [ "$?" -eq 1 ]
 then
     {
         echo "Assert 3" 
-        ".desktop file content does not match test data"
+        echo ".desktop file content does not match test data"
         diff <(cat test.desktop) <(cat /usr/share/applications/$exeName.desktop)
         echo
     } >> test.log
