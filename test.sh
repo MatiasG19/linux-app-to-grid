@@ -50,7 +50,7 @@ Exec='/usr/bin/testApp.sh'
 Name=TestApp
 Comment=TestApp
 Keywords=TestApp;" > test.desktop
-diff "test.desktop" "/usr/share/applications/$exeName.desktop"
+diff --git "test.desktop" "/usr/share/applications/$exeName.desktop"
 if [ "$?" -eq 1 ]
 then
     {
