@@ -3,18 +3,19 @@
 DESKTOP_DIR="/usr/share/applications/"
 BIN_DIR="/usr/bin/"
 
-PS3="Select action [1-2]: "
-select action in Add Remove
-do
-    case $action in
-        "Add")
-            break;;
-        "Remove")
-            break;;
-        *)
-            echo "Invalid input.";;
-    esac
-done
+# PS3="Select action [1-2]: "
+# select action in Add Remove
+# do
+#     case $action in
+#         "Add")
+#             break;;
+#         "Remove")
+#             break;;
+#         *)
+#             echo "Invalid input.";;
+#     esac
+# done
+action="Add"
 
 if [ "$action" == "Add" ]
 then

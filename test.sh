@@ -11,7 +11,7 @@ echo Hello world!
 ##################################
 # act
 ##################################
-printf '%s\n' 1 TestApp ./temp/TestApp.sh y | sudo ./AppToGrid.sh
+printf '%s\n' TestApp ./temp/TestApp.sh y | sudo ./AppToGrid.sh
 
 ##################################
 # assert
