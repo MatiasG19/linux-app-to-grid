@@ -3,21 +3,26 @@
 ##################################
 # arrange
 ##################################
+
+appName=TestApp
+exeNameWithExtension=myApp.sh
+exeName=myApp
+
 mkdir temp
 echo "#!/bin/bash
 echo Hello world!
-" > ./temp/testApp.sh
+" > ./temp/$exeName
 
 ##################################
 # act
 ##################################
-printf '%s\n' TestApp ./temp/testApp.sh y | sudo ./AppToGrid.sh
+printf '%s\n' $appName ./temp/$exeNameWithExtension y | sudo ./AppToGrid.sh
 
 ##################################
 # assert
 ##################################
 ## Check if executable exists
-if [ ! -f /usr/bin/testApp.sh ]; then
+if [ ! -f "/usr/bin/$exeNameWithExtension" ]; then
     {  
         echo "Assert 1" 
         echo "Executable does not exist in /usr/bin/"
@@ -26,7 +31,7 @@ if [ ! -f /usr/bin/testApp.sh ]; then
 fi
 
 ## Check if desktop file exists
-if [ ! -f /usr/share/applications/TestApp.desktop ]; then
+if [ ! -f /usr/share/applications/$exeName.desktop ]; then
     {
         echo "Assert 2"
         echo ".desktop file does not exist in /usr/share/applications/" 
@@ -38,40 +43,40 @@ fi
 echo "[Desktop Entry]
 Type=Application
 Terminal=false
-Exec='/usr/bin/testApp.sh'
-Name=TestApp
-Comment=TestApp
-Keywords=TestApp;" > test.desktop
-diff <(cat test.desktop) <(cat /usr/share/applications/testApp.desktop)
+Exec=/usr/bin/$exeNameWithExtension
+Name=$appName
+Comment=$appName
+Keywords=$appName;" > test.desktop
+diff <(cat test.desktop) <(cat /usr/share/applications/$exeName.desktop)
 if [ "$?" -eq 1 ] 
 then
     {
         echo "Assert 3" 
         ".desktop file content does not match test data"
-        diff <(cat test.desktop) <(cat /usr/share/applications/testApp.desktop)
+        diff <(cat test.desktop) <(cat /usr/share/applications/$exeName.desktop)
         echo
     } >> test.log
 fi
 
 ## Check executable permissions
-if [ ! "$(ls -l /usr/bin/testApp.sh | cut -c 10-10)" == "x" ]
+if [ ! "$(ls -l /usr/bin/$exeNameWithExtension | cut -c 10-10)" == "x" ]
 then
     {
         echo "Assert 4" 
         echo "Executable has no execution permissions"
-        ls -l /usr/bin/testApp.sh
+        ls -l /usr/bin/$exeNameWithExtension
         echo
     } >> test.log
 fi
 
 ## Run test app
-testApp.sh | grep -q "Hello world!"
+$exeNameWithExtension | grep -q "Hello world!"
 if [ "$?" -eq 1 ]
 then
     {
         echo "Assert 5" 
-        echo "Output of TestApp does not match expected output"
-        diff <(bash testApp.sh) <(echo "Hello world!")
+        echo "Output of $appName does not match expected output"
+        diff <(bash $exeName) <(echo "Hello world!")
         echo
     } >> test.log
 fi
