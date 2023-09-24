@@ -62,12 +62,12 @@ then
 
     echo "Adding desktop entry $exeName.desktop to grid at $DESKTOP_DIR..."
     echo "[Desktop Entry]
-    Type=Application
-    Terminal=false
-    Exec='$pathToExe'
-    Name=$appName
-    Comment=$appName
-    Keywords=$appName;" > "$exeName.desktop"
+Type=Application
+Terminal=false
+Exec='$pathToExe'
+Name=$appName
+Comment=$appName
+Keywords=$appName;" > "$exeName.desktop"
 
     mv -i "$exeName.desktop" "$DESKTOP_DIR$exeName.desktop"
 
