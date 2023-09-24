@@ -50,7 +50,8 @@ Exec='/usr/bin/$exeNameWithExtension'
 Name=$appName
 Comment=$appName
 Keywords=$appName;" > test.desktop
-if diff "test.desktop" "/usr/share/applications/$exeName.desktop"
+diff "test.desktop" "/usr/share/applications/$exeName.desktop"
+if [ "$?" -eq 1 ]
 then
     {
         echo "Assert 3" 
