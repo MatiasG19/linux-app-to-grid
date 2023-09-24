@@ -3,7 +3,7 @@
 ##################################
 # arrange
 ##################################
-
+echo Arrage
 appName=TestApp
 exeNameWithExtension=myApp.sh
 exeName=myApp
@@ -16,11 +16,14 @@ echo Hello world!
 ##################################
 # act
 ##################################
+echo Act
 printf '%s\n' $appName ./temp/$exeNameWithExtension y | sudo ./AppToGrid.sh
 
 ##################################
 # assert
 ##################################
+echo Act
+
 ## Check if executable exists
 if [ ! -f "/usr/bin/$exeNameWithExtension" ]; then
     {  
